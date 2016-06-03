@@ -23,6 +23,42 @@ public class LoginPagePojo {
 	private String confirmPswd;
 	private String back;
 	private String clear;
+	private String orForUser;
+	private String modifyUser;
+	private String userId;
+	private String find;
+
+	public String getFind() {
+		return find;
+	}
+
+	public void setFind(String find) {
+		this.find = find;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getModifyUser() {
+		return modifyUser;
+	}
+
+	public void setModifyUser(String modifyUser) {
+		this.modifyUser = modifyUser;
+	}
+
+	public String getOrForUser() {
+		return orForUser;
+	}
+
+	public void setOrForUser(String orForUser) {
+		this.orForUser = orForUser;
+	}
 
 	public String getBack() {
 		return back;
@@ -215,6 +251,11 @@ public class LoginPagePojo {
 		this.email = readEnglishProperties.getEmail();
 		this.cancel = readEnglishProperties.getCancel();
 		this.confirmPswd = readEnglishProperties.getConfirmPswd();
+		this.back = readEnglishProperties.getBack();
+		this.modifyUser = readEnglishProperties.getModifyUser();
+		this.orForUser = readEnglishProperties.getOrForUser();
+		this.userId = readEnglishProperties.getUserId();
+		this.find = readEnglishProperties.getFind();
 	}
 
 }

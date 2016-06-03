@@ -29,5 +29,9 @@
 		<property name="confirmPswd" value="${confirmPswd}" />
 		<property name="clear" value="${clear}" />
 		<property name="back" value="${back}" />
+		<property name="orForUser" value="${orForUser}" />
+		<property name="modifyUser" value="${modifyUser}" />
+		<property name="userId" value="${userId}" />
+		<property name="find" value="${find}" />
 	</bean>
 </beans>

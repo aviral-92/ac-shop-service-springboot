@@ -12,9 +12,14 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.effect.Effect;
+import javafx.scene.effect.Glow;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.TilePane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -30,9 +35,10 @@ import com.ac.pojo.LoginPagePojo;
 @Component
 public class LoginPage /* extends Application */{
 
-	/*@Autowired
-	private MessageSource messageSource;*/
-	
+	/*
+	 * @Autowired private MessageSource messageSource;
+	 */
+
 	@Autowired
 	SqlConnections sqlConnections;
 	@Autowired
@@ -50,7 +56,7 @@ public class LoginPage /* extends Application */{
 	public void start(Stage primaryStage) throws Exception {
 		// make the controls
 
-		//System.out.println("==============" + messageSource);
+		// System.out.println("==============" + messageSource);
 
 		LoginPagePojo readEnglishProperties = new LoginPagePojo(
 				AcShopServiceApplication.test());
@@ -174,9 +180,12 @@ public class LoginPage /* extends Application */{
 			if (!StringUtils.isEmpty(txtUsername.getText())
 					&& !StringUtils.isEmpty(passwordField)) {
 
-//				SqlConnections sqlConnections = new SqlConnections();
-				boolean response = dbOperation.loginCheck(txtUsername.getText(), passwordField.getText(), role);
-//				boolean response = sqlConnections.connections(txtUsername.getText(), passwordField.getText(), role);
+				// SqlConnections sqlConnections = new SqlConnections();
+				boolean response = dbOperation.loginCheck(
+						txtUsername.getText(), passwordField.getText(), role);
+				// boolean response =
+				// sqlConnections.connections(txtUsername.getText(),
+				// passwordField.getText(), role);
 				if (response) {
 					if (radioAdmin.isSelected()) {
 						WelcomeAdmin welcomeAdmin = new WelcomeAdmin();
