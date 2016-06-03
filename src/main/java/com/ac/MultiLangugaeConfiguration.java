@@ -9,8 +9,6 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 @Configuration
 public class MultiLangugaeConfiguration extends WebMvcConfigurerAdapter {
 
-	
-	
 	@Autowired
 	LocaleChangeInterceptor localeChangeInterceptor;
 
@@ -19,5 +17,4 @@ public class MultiLangugaeConfiguration extends WebMvcConfigurerAdapter {
 		registry.addInterceptor(localeChangeInterceptor);
 	}
 
-	
 }

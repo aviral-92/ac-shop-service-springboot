@@ -19,6 +19,7 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
+import com.ac.main.connection.SqlConnections;
 import com.ac.main.ui.LoginPage;
 import com.ac.pojo.LoginPagePojo;
 
@@ -31,9 +32,9 @@ public class AcShopServiceApplication extends AbstractJavaFxApplicationSupport {
 	private String url;
 	@Value("${usrname}")
 	private String username;
-	@Value("${pswd}")
+	@Value("${paswd}")
 	private String pswd;
-	
+
 	@Autowired
 	LoginPage loginPage;
 
@@ -78,7 +79,7 @@ public class AcShopServiceApplication extends AbstractJavaFxApplicationSupport {
 		lci.setParamName("lang");
 		return lci;
 	}
-	
+
 	@Bean
 	public DataSource getDataSource() {
 
@@ -94,5 +95,12 @@ public class AcShopServiceApplication extends AbstractJavaFxApplicationSupport {
 	public JdbcTemplate getJdbcTemplate() {
 		return new JdbcTemplate(getDataSource());
 	}
+
+	/*@Bean
+	public SqlConnections sqlConnections() {
+		SqlConnections connections = new SqlConnections();
+		connections.setDataSource(getDataSource());
+		return new SqlConnections();
+	}*/
 
 }

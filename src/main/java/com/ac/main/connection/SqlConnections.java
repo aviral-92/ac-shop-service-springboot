@@ -24,7 +24,11 @@ public class SqlConnections {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
-	
+
+	public SqlConnections() {
+		super();
+	}
+
 	Connection con;
 	PreparedStatement ps;
 	ResultSet rs;
@@ -35,7 +39,8 @@ public class SqlConnections {
 
 	public boolean connections(String username, String password, String role) {
 
-		System.out.println(jdbcTemplate);
+		System.out.println(jdbcTemplate + "jdbcTemplate");
+		// System.out.println(dataSource + "dataSource");
 		boolean response = false;
 		try {
 			if (con == null) {

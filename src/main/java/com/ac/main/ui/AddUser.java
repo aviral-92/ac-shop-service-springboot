@@ -14,13 +14,30 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.ac.AcShopServiceApplication;
 import com.ac.commons.UiCommons;
+import com.ac.db.DbOperation;
+import com.ac.db.impl.DbOperationImpl;
 import com.ac.global.focus.FocusUI;
-import com.ac.main.connection.SqlConnections;
 import com.ac.pojo.LoginPagePojo;
 import com.ac.pojo.UserDetail;
+
+@Component
 public class AddUser extends Application {
+
+	@Autowired
+	private DbOperation dbOperation;
+
+	public DbOperation getDbOperation() {
+		return dbOperation;
+	}
+
+	public void setDbOperation(DbOperation dbOperation) {
+		this.dbOperation = dbOperation;
+	}
 
 	Button btnSubmit, btnCancel;
 
@@ -98,8 +115,9 @@ public class AddUser extends Application {
 
 			List<UserDetail> listDetails = UiCommons
 					.userDetailCommons(textFields);
-			SqlConnections sqlConnections = new SqlConnections();
-			String query = sqlConnections.addUser(listDetails);
+			// SqlConnections sqlConnections = new SqlConnections();
+			// String query = sqlConnections.addUser(listDetails);
+			String query = dbOperation.addUser(listDetails);
 			System.out.println(query);
 		}
 	}

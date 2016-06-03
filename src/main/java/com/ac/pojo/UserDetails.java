@@ -16,6 +16,10 @@ public class UserDetails {
 		this.mobile = mobile;
 	}
 
+	public UserDetails() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getUserId() {
 		return userId;
 	}

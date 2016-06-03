@@ -18,10 +18,12 @@ import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import com.ac.AcShopServiceApplication;
+import com.ac.db.DbOperation;
 import com.ac.main.connection.SqlConnections;
 import com.ac.pojo.LoginPagePojo;
 
@@ -30,6 +32,11 @@ public class LoginPage /* extends Application */{
 
 	/*@Autowired
 	private MessageSource messageSource;*/
+	
+	@Autowired
+	SqlConnections sqlConnections;
+	@Autowired
+	private DbOperation dbOperation;
 
 	TextField txtUsername;
 	PasswordField passwordField;
@@ -167,9 +174,9 @@ public class LoginPage /* extends Application */{
 			if (!StringUtils.isEmpty(txtUsername.getText())
 					&& !StringUtils.isEmpty(passwordField)) {
 
-				SqlConnections sqlConnections = new SqlConnections();
-				boolean response = sqlConnections.connections(
-						txtUsername.getText(), passwordField.getText(), role);
+//				SqlConnections sqlConnections = new SqlConnections();
+				boolean response = dbOperation.loginCheck(txtUsername.getText(), passwordField.getText(), role);
+//				boolean response = sqlConnections.connections(txtUsername.getText(), passwordField.getText(), role);
 				if (response) {
 					if (radioAdmin.isSelected()) {
 						WelcomeAdmin welcomeAdmin = new WelcomeAdmin();
